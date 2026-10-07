@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Corpo em Forma</title>
+<style>
+:root{--g:#20c978;--bg:#0b100d;--card:#17211c;--line:#2a3931;--muted:#aab7af}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+button,input{font:inherit}.top{position:sticky;top:0;z-index:10;background:#0b100df2;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:900;font-size:21px}.logo span{color:var(--g)}
+.nav button{background:none;border:0;color:#aab7af;padding:9px;cursor:pointer}.nav button:hover{color:#fff}
+.hero,.section{max-width:1150px;margin:auto;padding:45px 22px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
+.badge{display:inline-block;background:#123d29;color:#72e9a7;border-radius:30px;padding:8px 13px;font-size:12px;font-weight:800}
+h1{font-size:clamp(42px,6vw,72px);line-height:.96;margin:18px 0}.green{color:var(--g)}p{color:var(--muted);line-height:1.6}
+.actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer}.primary{background:var(--g);color:#061008}.secondary{background:#24332b;color:#fff}
+.heroimg{height:390px;border-radius:26px;overflow:hidden;position:relative;border:1px solid var(--line)}.heroimg img{width:100%;height:100%;object-fit:cover;filter:brightness(.7)}.caption{position:absolute;bottom:15px;left:15px;right:15px;background:#000b;padding:15px;border-radius:15px}
+.title{margin-bottom:18px}.title h2{font-size:30px;margin:0}.title p{margin:6px 0}
+.gallery{display:grid;grid-template-columns:2fr 1fr;gap:14px}.gallery img{width:100%;height:230px;object-fit:cover;border-radius:18px;border:1px solid var(--line)}.gallery img:first-child{height:474px;grid-row:span 2}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}.card.featured{border-color:var(--g);box-shadow:0 0 0 1px #20c97822}.card h3{margin:0}.price{font-size:32px;font-weight:900;margin:13px 0}.price small{font-size:13px;color:var(--muted)}.card li{color:var(--muted);margin:9px 0}.card .btn{width:100%;margin-top:8px}
+.calendar{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.calhead button{border:0;background:#26362d;color:#fff;border-radius:10px;padding:8px 13px;cursor:pointer}.week,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.week div{text-align:center;color:#89968f;font-size:12px;padding:6px}.day{min-height:74px;background:#111b15;border:1px solid #233129;border-radius:11px;padding:8px;cursor:pointer}.day:hover{border-color:var(--g)}.day.today{outline:2px solid var(--g)}.day.selected{background:#15502f}.mark{display:block;color:#75e9a8;font-size:11px;margin-top:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.footer{text-align:center;color:#69766e;padding:35px}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:50;align-items:center;justify-content:center;padding:18px}.modal.open{display:flex}.box{width:min(460px,100%);background:#17211c;border:1px solid var(--line);border-radius:22px;padding:25px}.close{float:right;border:0;background:none;color:#aaa;font-size:25px;cursor:pointer}.field{margin:13px 0}.field label{display:block;color:#b7c2bc;font-size:13px;margin-bottom:6px}.field input{width:100%;padding:13px;background:#0c120f;color:#fff;border:1px solid #35463c;border-radius:11px;outline:none}.message{margin-top:12px;padding:10px;border-radius:10px;background:#123d29;color:#82efb1;font-size:13px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{grid-column:span 2;height:260px}.nav button{display:none}.day{min-height:58px;padding:5px;font-size:12px}}
+</style>
+</head>
+<body>
+<header class="top"><nav class="nav">
+<div class="logo">CORPO <span>EM FORMA</span></div>
+<div>
+<button onclick="scrollToId('inicio')">Início</button>
+<button onclick="scrollToId('fotos')">Academia</button>
+<button onclick="scrollToId('planos')">Planos</button>
+<button onclick="scrollToId('agenda')">Agenda</button>
+<button onclick="openModal()">Cadastrar</button>
+</div>
+</nav></header>
+
+<main>
+<section class="hero" id="inicio">
+<div>
+<span class="badge">ACADEMIA CORPO EM FORMA</span>
+<h1>Treine.<br><span class="green">Evolua.</span><br>Conquiste.</h1>
+<p>Um espaço para cuidar do seu corpo, organizar seus treinos e acompanhar sua rotina de academia em um só lugar.</p>
+<div class="actions">
+<button class="btn primary" onclick="scrollToId('planos')">Ver planos</button>
+<button class="btn secondary" onclick="scrollToId('agenda')">Organizar meus treinos</button>
+</div>
+</div>
+<div class="heroimg"><img src="academia1.jpg"><div class="caption"><b>Seu treino começa aqui.</b><br><small>Ambiente equipado e preparado para você.</small></div></div>
+</section>
+
+<section class="section" id="fotos">
+<div class="title"><h2>Nossa academia</h2><p>Conheça um pouco do espaço Corpo em Forma.</p></div>
+<div class="gallery"><img src="academia2.jpg"><img src="academia3.jpg"><img src="academia1.jpg"></div>
+</section>
+
+<section class="section" id="planos">
+<div class="title"><h2>Planos e assinaturas</h2><p>Escolha a duração que combina com sua rotina.</p></div>
+<div class="cards">
+<div class="card"><h3>7 dias</h3><div class="price">R$ 29,90 <small>/ 7 dias</small></div><ul><li>Acesso à academia</li><li>Organizador de treinos</li><li>Cadastro no app</li></ul><button class="btn primary" onclick="selectPlan('7 dias — R$ 29,90')">Assinar</button></div>
+<div class="card featured"><h3>30 dias ⭐</h3><div class="price">R$ 79,90 <small>/ 30 dias</small></div><ul><li>Acesso à academia</li><li>Agenda de treinos</li><li>Acompanhamento da rotina</li></ul><button class="btn primary" onclick="selectPlan('30 dias — R$ 79,90')">Assinar</button></div>
+<div class="card"><h3>90 dias</h3><div class="price">R$ 199,90 <small>/ 90 dias</small></div><ul><li>Acesso à academia</li><li>Agenda de treinos</li><li>Plano de longo prazo</li></ul><button class="btn primary" onclick="selectPlan('90 dias — R$ 199,90')">Assinar</button></div>
+</div>
+</section>
+
+<section class="section" id="agenda">
+<div class="title"><h2>Agenda de treinos</h2><p>Clique em uma data para marcar o treino do dia.</p></div>
+<div class="calendar">
+<div class="calhead"><button onclick="changeMonth(-1)">‹</button><strong id="monthName"></strong><button onclick="changeMonth(1)">›</button></div>
+<div class="week"><div>DOM</div><div>SEG</div><div>TER</div><div>QUA</div><div>QUI</div><div>SEX</div><div>SÁB</div></div>
+<div class="days" id="days"></div>
+<p style="font-size:13px">Os treinos marcados ficam salvos neste navegador.</p>
+</div>
+</section>
+</main>
+<footer class="footer">© 2026 Academia Corpo em Forma • Seu treino, sua evolução.</footer>
+
+<div class="modal" id="modal"><div class="box">
+<button class="close" onclick="closeModal()">×</button>
+<h2>Criar sua conta</h2><p>Cadastre-se para acessar seus treinos e sua assinatura.</p>
+<div class="field"><label>Nome</label><input id="name" placeholder="Seu nome"></div>
+<div class="field"><label>E-mail</label><input id="email" type="email" placeholder="seu@email.com"></div>
+<div class="field"><label>Senha</label><input id="pass" type="password" placeholder="Crie uma senha"></div>
+<button class="btn primary" style="width:100%" onclick="register()">Cadastrar</button>
+<div id="msg"></div>
+</div></div>
+
+<script>
+const months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+let view=new Date(); let workouts=JSON.parse(localStorage.getItem('cef_workouts')||'{}');
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function register(){
+ const n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim(),p=document.getElementById('pass').value;
+ if(!n||!e||!p){document.getElementById('msg').innerHTML='<div class="message">Preencha nome, e-mail e senha.</div>';return}
+ localStorage.setItem('cef_user',JSON.stringify({name:n,email:e}));
+ document.getElementById('msg').innerHTML='<div class="message">Cadastro realizado! Bem-vindo(a), '+n+'!</div>';
+}
+function selectPlan(plan){openModal();document.getElementById('msg').innerHTML='<div class="message">Plano selecionado: '+plan+'. Finalize seu cadastro para continuar.</div>'}
+function render(){
+ const y=view.getFullYear(),m=view.getMonth(); document.getElementById('monthName').textContent=months[m]+' '+y;
+ const first=new Date(y,m,1).getDay(), total=new Date(y,m+1,0).getDate(), box=document.getElementById('days');box.innerHTML='';
+ for(let i=0;i<first;i++) box.appendChild(document.createElement('div'));
+ const today=new Date();
+ for(let d=1;d<=total;d++){
+  const el=document.createElement('div');el.className='day';
+  if(d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear())el.classList.add('today');
+  const key=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+  el.innerHTML='<span class="num">'+d+'</span>'+(workouts[key]?'<span class="mark">🏋 '+workouts[key]+'</span>':'');
+  el.onclick=()=>{let t=prompt('Qual treino você quer marcar para '+d+'/'+String(m+1)+'? ',workouts[key]||'');if(t===null)return;if(t.trim()){workouts[key]=t.trim()}else{delete workouts[key]}localStorage.setItem('cef_workouts',JSON.stringify(workouts));render()};
+  box.appendChild(el);
+ }
+}
+function changeMonth(n){view.setMonth(view.getMonth()+n);render()}
+render();
+</script>
+</body>
+</html>
